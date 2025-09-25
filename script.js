@@ -1,0 +1,2 @@
+const apiUrl =  'https://www.dragonball-api.com/api'
+
