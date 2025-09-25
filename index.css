@@ -1,10 +1,15 @@
 body {
-    border: 2px solid red;
-    display: grid;
-    height: 100vh;
-    
+  border: 2px solid red;
+  display: grid;
+  height: 100vh;
 }
 header {
-    border: 2px solid blue;
-    /* height: ; */
+  border: 2px solid blue;
+  /* height: ; */
+}
+img {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  size: 300px;
 }
