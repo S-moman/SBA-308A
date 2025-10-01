@@ -1,23 +1,25 @@
-// @ts-check
 const apiUrl =
   "https://dragonball-api.com/api/characters"; // Base API URL
 const cSection = document.getElementById("container");
 const infoSection = document.getElementById("info-section");
 const mContainer = document.getElementById("main-container");
 const charSelect = document.getElementById("characters-select");
+const planetSelect = document.getElementById("planet-select");
+
+import * as Con from "./const.js"
 
 
 // Async function to get everything started
 export async function initialStart() {
   const getInfo = await fetch(apiUrl);
   const infoData = await getInfo.json();
-  console.log(infoData);
+  // console.log(infoData);
   let character = infoData.items;
   let links = infoData.links
   let fLink = links.next
   const getMoreChar = await fetch(fLink);
   const moreChar = await getMoreChar.json();
-  console.log(moreChar);
+  // console.log(moreChar);
 
   character.forEach((characters) => {
     // console.log(characters.name)
@@ -35,13 +37,14 @@ export async function initialStart() {
 
     charSelect.appendChild(cCharacters);
   });
+  getCharData({target: {value: 'Goku'} })
 }
 
 // Grabbing the character information
 export async function getCharData(e) {
   const getCharInfo = await fetch(apiUrl);
   const charInfo = await getCharInfo.json();
-  console.log(charInfo);
+  // console.log(charInfo);
   let charData = charInfo.items;
   let id = charSelect.value;
 
@@ -87,12 +90,17 @@ charSelect.addEventListener("change", getCharData);
 export async function getPlanet() {
   const getPlanetInfo = await fetch("https://dragonball-api.com/api/planets")
   const planetInfo = await getPlanetInfo.json()
-  console.log(planetInfo);
+  console.log(getPlanetInfo);
   const planets = planetInfo.items
   console.log(planets)
 
   planets.forEach((planet) => {
-    document.body.style.backgroundImage = planet.image 
+    const cPlanet = document.createElement('option')
+    cPlanet.value = planet.id;
+     cPlanet.textContent = cPlanet.name;
+     planetSelect.appendChild(cPlanet)
   })
+
+  // document.body.appendChild(getPlanetInfo)
 
 }

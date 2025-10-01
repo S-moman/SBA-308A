@@ -8,6 +8,8 @@ body {
 header {
   border: 2px solid blue;
   /* height: ; */
+  display: flex;
+  align-items: center;
 }
 img {
   /* display: flex; */
