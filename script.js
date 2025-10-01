@@ -101,6 +101,5 @@ export async function getPlanet() {
      planetSelect.appendChild(cPlanet)
   })
 
-  // document.body.appendChild(getPlanetInfo)
 
 }
